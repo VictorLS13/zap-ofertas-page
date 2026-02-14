@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPF1Z9VL0"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZDPF1Z9VL0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zap Ofertas - Grupo de Ofertas 100% Gratuito</title>
@@ -29,8 +37,14 @@
             <span class="whatsapp-text">WhatsApp!</span>
         </p>
 
-        <!-- Botão principal -->
-        <a href="https://chat.whatsapp.com/EPLJfZ96JeaC5hu93taWdC" class="botao-whatsapp" target="_blank">
+        <!-- Botão principal com rastreamento -->
+        <a href="https://chat.whatsapp.com/EPLJfZ96JeaC5hu93taWdC"
+           class="botao-whatsapp"
+           target="_blank"
+           onclick="gtag('event','click_whatsapp',{
+               'event_category':'engagement',
+               'event_label':'botao_principal'
+           });">
             <span class="icon-whatsapp">💬</span>
             <span class="texto-botao">ENTRAR NO GRUPO AGORA</span>
         </a>
