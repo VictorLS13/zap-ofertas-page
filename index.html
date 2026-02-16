@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPF1Z9VL0"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,44 +16,34 @@
 </head>
 <body>
     <div class="container">
-        <!-- Logo/Mascote -->
         <div class="mascote-wrap">
-        <img src="logo.png" class="mascote" alt="Zap Ofertas Mascote">
+            <img src="logo.png" class="mascote" alt="Zap Ofertas Mascote">
         </div>
 
-
-        <!-- Título -->
         <h1 class="titulo">
             <span class="zap">ZAP</span><span class="ofertas">OFERTAS</span>
         </h1>
 
-        <!-- Subtítulo -->
         <h2 class="subtitulo">GRUPO DE OFERTAS 100% GRATUITO</h2>
 
-        <!-- Texto descritivo -->
         <p class="descricao">
-            Receba as <span class="destaque">melhores promoções, cupons<br>exclusivos</span> e <span class="destaque">ofertas relâmpago</span> direto no seu<br>
-            <span class="whatsapp-text">WhatsApp!</span>
+            Receba as <span class="destaque">melhores promoções, cupons exclusivos</span> e
+            <span class="destaque">ofertas relâmpago</span> direto no seu
+            <span class="whatsapp-text">WhatsApp</span>.
         </p>
 
-        <!-- Botão principal com rastreamento -->
         <a href="https://chat.whatsapp.com/IiMs9VLczpLIU2p8dHv0Pn"
            class="botao-whatsapp"
            target="_blank"
-           onclick="gtag('event','click_whatsapp',{
-               'event_category':'engagement',
-               'event_label':'botao_principal'
-           });">
+           onclick="gtag('event','click_whatsapp',{'event_category':'engagement','event_label':'botao_principal'});">
             <span class="icon-whatsapp">💬</span>
             <span class="texto-botao">ENTRAR NO GRUPO AGORA</span>
         </a>
 
-        <!-- Vagas disponíveis -->
         <p class="vagas">
-            <span class="ponto-verde">●</span> Restam apenas 17 vagas disponíveis!
+            <span class="ponto-verde">●</span> Restam apenas 17 vagas disponíveis hoje.
         </p>
 
-        <!-- Cards de informações -->
         <div class="cards-container">
             <div class="card">
                 <p class="card-numero">100%</p>
@@ -62,21 +51,77 @@
             </div>
             <div class="card">
                 <p class="card-numero">24h</p>
-                <p class="card-texto">Por dia</p>
+                <p class="card-texto">Ofertas por dia</p>
             </div>
             <div class="card">
                 <p class="card-numero">+1000</p>
-                <p class="card-texto">Membros</p>
+                <p class="card-texto">Membros ativos</p>
             </div>
         </div>
 
-        <!-- Footer -->
+        <section class="secao-copy" aria-label="Motivos para entrar">
+            <h3>Por que entrar agora?</h3>
+            <p>
+                Você recebe links com preço baixo de verdade, antes de subir ou acabar o estoque.
+                As oportunidades mais fortes costumam durar poucos minutos.
+            </p>
+            <ul>
+                <li>Ofertas com desconto real e sem enrolação.</li>
+                <li>Alertas rápidos para você comprar antes da alta.</li>
+                <li>Links diretos para finalizar no app em segundos.</li>
+            </ul>
+            <a href="https://chat.whatsapp.com/IiMs9VLczpLIU2p8dHv0Pn"
+               class="cta-secundario"
+               target="_blank"
+               onclick="gtag('event','click_whatsapp',{'event_category':'engagement','event_label':'cta_secundario'});">
+                Quero receber as ofertas
+            </a>
+        </section>
+
+        <section class="secao-vitrine" id="vitrine" aria-label="Exemplos de ofertas do grupo">
+            <h3>Ofertas reais publicadas no grupo</h3>
+            <p class="texto-vitrine">Alguns exemplos do tipo de promoção que você encontra diariamente:</p>
+            <div class="grid-ofertas">
+                <article class="item-oferta">
+                    <img src="imagens/100-whey-max.png" alt="Oferta de 100% Whey Max Titanium 900g">
+                    <div class="oferta-info">
+                        <h4>100% Whey Max Titanium 900g</h4>
+                        <p>De <span>R$136,72</span> por <strong>R$86,31</strong></p>
+                    </div>
+                </article>
+                <article class="item-oferta">
+                    <img src="imagens/kit-balancas.png" alt="Oferta de kit com duas balanças">
+                    <div class="oferta-info">
+                        <h4>Kit 2 Balanças (cozinha + corporal)</h4>
+                        <p>Preço promocional a partir de <strong>R$19,70</strong></p>
+                    </div>
+                </article>
+                <article class="item-oferta">
+                    <img src="imagens/smart-tv-samsung.png" alt="Oferta de Smart TV Samsung 32 polegadas">
+                    <div class="oferta-info">
+                        <h4>Smart TV Samsung 32" HD</h4>
+                        <p>De <span>R$1.599</span> por <strong>R$805</strong></p>
+                    </div>
+                </article>
+                <article class="item-oferta">
+                    <img src="imagens/nintendo-switch-bundle.png" alt="Oferta de bundle Nintendo Switch com jogo Mario">
+                    <div class="oferta-info">
+                        <h4>Bundle Nintendo Switch + Mario</h4>
+                        <p>De <span>R$3.219</span> por <strong>R$1.961</strong></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <footer class="footer">
             © 2026 Zap Ofertas - Todos os direitos reservados
         </footer>
     </div>
 
+    <div class="social-proof-popup" id="socialProofPopup" aria-live="polite">
+        <p><strong id="popupNumero">+55 16 9*******</strong> acabou de entrar no grupo.</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
