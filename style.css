@@ -251,72 +251,125 @@ body {
 }
 
 .secao-vitrine {
-    width: 100%;
-    margin-top: 14px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 24px;
+    padding: 56px 28px 28px;
+    background: linear-gradient(135deg, #24d46b 0%, #15b356 45%, #0f8f43 100%);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    position: relative;
     text-align: center;
+}
+
+.secao-vitrine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 76px;
+    height: 38px;
+    border-bottom-left-radius: 38px;
+    border-bottom-right-radius: 38px;
+    background: #090909;
 }
 
 .secao-vitrine h3 {
     font-size: 28px;
     margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .texto-vitrine {
-    color: #c9c9c9;
-    margin-bottom: 16px;
+    color: #ebfff2;
+    margin-bottom: 18px;
 }
 
-.grid-ofertas {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+.carousel {
+    --slide-gap: 16px;
+    --visible-slides: 3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.item-oferta {
-    background: #141414;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.item-oferta:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-}
-
-.item-oferta img {
+.carousel-viewport {
     width: 100%;
-    height: 260px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--slide-gap);
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex: 0 0 calc((100% - ((var(--visible-slides) - 1) * var(--slide-gap))) / var(--visible-slides));
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 430px;
     object-fit: contain;
     object-position: center;
-    background: #f5f5f5;
+    background: #f1f1f1;
     display: block;
 }
 
-.oferta-info {
-    padding: 14px;
-    text-align: center;
+.carousel-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.12);
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.oferta-info h4 {
-    font-size: 16px;
-    line-height: 1.4;
-    margin-bottom: 8px;
+.carousel-btn:hover {
+    transform: scale(1.06);
+    filter: brightness(1.08);
 }
 
-.oferta-info p {
-    color: #d4d4d4;
-    font-size: 14px;
+.carousel-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
 }
 
-.oferta-info span {
-    text-decoration: line-through;
-    color: #9e9e9e;
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
 }
 
-.oferta-info strong {
-    color: #00ff00;
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.carousel-dot.active {
+    background: #ffffff;
 }
 
 .footer {
@@ -420,12 +473,31 @@ body {
         font-size: 23px;
     }
 
-    .grid-ofertas {
-        grid-template-columns: 1fr;
+    .secao-vitrine {
+        padding: 50px 14px 18px;
+        border-radius: 22px;
     }
 
-    .item-oferta img {
-        height: 240px;
+    .secao-vitrine::before {
+        width: 62px;
+        height: 30px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .carousel {
+        --visible-slides: 1;
+        gap: 8px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+    }
+
+    .carousel-slide img {
+        height: 360px;
     }
 
     .social-proof-popup {

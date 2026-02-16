@@ -16,6 +16,7 @@
     }
 
     startSocialProofPopup();
+    startCarousel();
 });
 
 function createParticles(e) {
@@ -101,6 +102,118 @@ function startSocialProofPopup() {
     setInterval(exibirPopup, 9000);
 }
 
+function startCarousel() {
+    const carousel = document.getElementById('ofertasCarousel');
+    const track = carousel ? carousel.querySelector('.carousel-track') : null;
+    const prevBtn = carousel ? carousel.querySelector('.carousel-btn.prev') : null;
+    const nextBtn = carousel ? carousel.querySelector('.carousel-btn.next') : null;
+    const dotsWrap = document.getElementById('carouselDots');
+
+    if (!carousel || !track || !prevBtn || !nextBtn || !dotsWrap) {
+        return;
+    }
+
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+    if (slides.length === 0) {
+        return;
+    }
+
+    let currentIndex = 0;
+    let visibleSlides = getVisibleSlides();
+    let autoTimer = null;
+
+    function getVisibleSlides() {
+        return window.innerWidth <= 768 ? 1 : 3;
+    }
+
+    function maxIndex() {
+        return Math.max(0, slides.length - visibleSlides);
+    }
+
+    function getStep() {
+        if (slides.length < 2) {
+            return slides[0].getBoundingClientRect().width;
+        }
+        const first = slides[0].getBoundingClientRect();
+        const second = slides[1].getBoundingClientRect();
+        return second.left - first.left;
+    }
+
+    function renderDots() {
+        dotsWrap.innerHTML = '';
+        const total = maxIndex() + 1;
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
+            dotsWrap.appendChild(dot);
+        }
+    }
+
+    function update() {
+        const step = getStep();
+        track.style.transform = 'translateX(-' + (currentIndex * step) + 'px)';
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex();
+        renderDots();
+    }
+
+    function goTo(index) {
+        currentIndex = Math.max(0, Math.min(index, maxIndex()));
+        update();
+    }
+
+    function next() {
+        if (currentIndex >= maxIndex()) {
+            goTo(0);
+            return;
+        }
+        goTo(currentIndex + 1);
+    }
+
+    function restartAuto() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+        }
+        autoTimer = setInterval(next, 4500);
+    }
+
+    prevBtn.addEventListener('click', function () {
+        goTo(currentIndex - 1);
+        restartAuto();
+    });
+
+    nextBtn.addEventListener('click', function () {
+        next();
+        restartAuto();
+    });
+
+    carousel.addEventListener('mouseenter', function () {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+        }
+    });
+
+    carousel.addEventListener('mouseleave', function () {
+        restartAuto();
+    });
+
+    window.addEventListener('resize', function () {
+        const newVisible = getVisibleSlides();
+        if (newVisible !== visibleSlides) {
+            visibleSlides = newVisible;
+            carousel.style.setProperty('--visible-slides', String(visibleSlides));
+        }
+        if (currentIndex > maxIndex()) {
+            currentIndex = maxIndex();
+        }
+        update();
+    });
+
+    carousel.style.setProperty('--visible-slides', String(visibleSlides));
+    update();
+    restartAuto();
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -110,4 +223,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-

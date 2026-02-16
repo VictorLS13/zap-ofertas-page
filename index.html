@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <section class="secao-copy" aria-label="Motivos para entrar">
+        <!-- <section class="secao-copy" aria-label="Motivos para entrar">
             <h3>Por que entrar agora?</h3>
             <p>
                 Você recebe links com preço baixo de verdade, antes de subir ou acabar o estoque.
@@ -76,41 +76,28 @@
                onclick="gtag('event','click_whatsapp',{'event_category':'engagement','event_label':'cta_secundario'});">
                 Quero receber as ofertas
             </a>
-        </section>
+        </section> -->
 
-        <section class="secao-vitrine" id="vitrine" aria-label="Exemplos de ofertas do grupo">
-            <h3>Ofertas reais publicadas no grupo</h3>
-            <p class="texto-vitrine">Alguns exemplos do tipo de promoção que você encontra diariamente:</p>
-            <div class="grid-ofertas">
-                <article class="item-oferta">
-                    <img src="imagens/100-whey-max.png" alt="Oferta de 100% Whey Max Titanium 900g">
-                    <div class="oferta-info">
-                        <h4>100% Whey Max Titanium 900g</h4>
-                        <p>De <span>R$136,72</span> por <strong>R$86,31</strong></p>
+        <section class="secao-vitrine" id="vitrine" aria-label="Prints de promoções reais do grupo">
+            <h3>Essas são algumas promoções que membros já pegaram</h3>
+            <p class="texto-vitrine">Prints reais publicados no grupo:</p>
+            <div class="carousel" id="ofertasCarousel">
+                <button class="carousel-btn prev" type="button" aria-label="Ver prints anteriores">‹</button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <article class="carousel-slide"><img src="imagens/comparativo-2.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/comparativo.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/100-whey-max.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/kit-balancas.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/smart-tv-samsung.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/nintendo-switch-bundle.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/calca-pantalona.png" alt="Print de oferta publicada no grupo"></article>
+                        <article class="carousel-slide"><img src="imagens/luminaria.png" alt="Print de oferta publicada no grupo"></article>
                     </div>
-                </article>
-                <article class="item-oferta">
-                    <img src="imagens/kit-balancas.png" alt="Oferta de kit com duas balanças">
-                    <div class="oferta-info">
-                        <h4>Kit 2 Balanças (cozinha + corporal)</h4>
-                        <p>Preço promocional a partir de <strong>R$19,70</strong></p>
-                    </div>
-                </article>
-                <article class="item-oferta">
-                    <img src="imagens/smart-tv-samsung.png" alt="Oferta de Smart TV Samsung 32 polegadas">
-                    <div class="oferta-info">
-                        <h4>Smart TV Samsung 32" HD</h4>
-                        <p>De <span>R$1.599</span> por <strong>R$805</strong></p>
-                    </div>
-                </article>
-                <article class="item-oferta">
-                    <img src="imagens/nintendo-switch-bundle.png" alt="Oferta de bundle Nintendo Switch com jogo Mario">
-                    <div class="oferta-info">
-                        <h4>Bundle Nintendo Switch + Mario</h4>
-                        <p>De <span>R$3.219</span> por <strong>R$1.961</strong></p>
-                    </div>
-                </article>
+                </div>
+                <button class="carousel-btn next" type="button" aria-label="Ver próximas prints">›</button>
             </div>
+            <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
         </section>
 
         <footer class="footer">
