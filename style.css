@@ -443,20 +443,23 @@ body {
     }
 
     .cards-container {
-        gap: 10px;
+        gap: 8px;
+        flex-wrap: nowrap;
+        width: 100%;
     }
 
     .card {
-        min-width: calc(33.333% - 8px);
-        padding: 16px 10px;
+        min-width: 0;
+        flex: 1 1 0;
+        padding: 14px 6px;
     }
 
     .card-numero {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .card-texto {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .secao-copy,
@@ -507,4 +510,3 @@ body {
         font-size: 13px;
     }
 }
-
